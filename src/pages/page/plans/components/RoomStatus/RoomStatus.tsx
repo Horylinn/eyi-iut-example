@@ -35,7 +35,7 @@ const RoomStatus: React.FC<RoomStatusProps> = ({
       case "temperature":
         nb = Number(data);
         if (nb < 16) color = "#2d67e3";
-        else if (nb < 21) color = "#32eb21";
+        else if (nb < 21) color = "#588600";
         else if (nb < 27) color = "#eb7221";
         else color = "#eb2121";
         send = (
@@ -45,8 +45,9 @@ const RoomStatus: React.FC<RoomStatusProps> = ({
         );
         break;
       case "humidity":
+        nb = Number(data);
         if (nb < 20) color = "#2d67e3";
-        else if (nb < 50) color = "#32eb21";
+        else if (nb < 50) color = "#588600";
         else if (nb < 70) color = "#eb7221";
         else color = "#eb2121";
         send = (
@@ -56,8 +57,9 @@ const RoomStatus: React.FC<RoomStatusProps> = ({
         );
         break;
       case "co2":
+        nb = Number(data);
         if (nb < 100) color = "#2d67e3";
-        else if (nb < 850) color = "#32eb21";
+        else if (nb < 850) color = "#588600";
         else if (nb < 1450) color = "#eb7221";
         else color = "#eb2121";
         send = (
@@ -75,7 +77,7 @@ const RoomStatus: React.FC<RoomStatusProps> = ({
             </div>
           );
         } else {
-          color = "#32eb21";
+          color = "#588600";
           send = (
             <div className="end" style={{ color: color }}>
               Oui
