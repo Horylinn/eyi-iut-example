@@ -1,0 +1,109 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plan des salles{% endblock %}
+
+{% block body %}
+    <section class = "container">
+        <h3 class="container-title"><i class="fa-solid fa-door-open"></i> Plan des salles</h3>
+        <div class="actions-bar">
+            <div class="left-area">
+                <form method="post" action="{{ path('app_technicien_liste_plan') }}">
+                    <label for="etat" class="filter-etat"><i class="fa-solid fa-arrows-rotate"></i> Filtrer par état :</label>
+                    <select id="etat" name="etat" class="form-select" onchange="this.form.submit()">
+                        <option value="">Tous les états</option>
+                        <option value="En attente d'installation" {% if app.request.get('etat') == 'En attente d\'installation' %}selected{% endif %}>En attente d'installation</option>
+                        <option value="Operationnel" {% if app.request.get('etat') == 'Operationnel' %}selected{% endif %}>Operationnel</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <h4 class="plan title">Salles en état operationnel</h4>
+        <div class="plan liste">
+            {% for salle in listeSalle %}
+                {% if salle.sa is not null and salle.sa.etat.value == "Operationnel" %}
+                    <div class="plan salle-operationnel">
+                        <h5 class="plan salle-title">Salle {{ salle.nom }}  <div class="pastille operationnel"></div></h5>
+                        <div class="blue-bar"></div>
+                        <p>
+                            {% set precondition = true %}
+                            {% for sa in nomsa %}
+                                {% if precondition %}
+                                    {% if sa == salle.sa.nom %}
+                                        Mis à jour le {{ date[sa[6:]-1][5:2] }}/{{ date[sa[6:]-1][8:2] }} à {{ date[sa[6:]-1][11:5] }}
+                                        {% set precondition = false %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="plan salle-description">Température :
+                            {% set precondition = true %}
+                            {% for sa in nomsa %}
+                                {% if precondition %}
+                                    {% if sa == salle.sa.nom %}
+                                        {% if "17" <= temperature[sa[6:]-1] <= "21" %}
+                                            <span style="color: #44A556"> {{ temperature[sa[6:]-1] }}°C</span>
+                                        {% elseif temperature[sa[6:]-1] <= "17" or ("21" < temperature[sa[6:]-1] <= "28") %}
+                                            <span style="color: #F3A600"> {{ temperature[sa[6:]-1] }}°C</span>
+                                        {% elseif temperature[sa[6:]-1] > "28" %}
+                                            <span style="color: #DD1600"> {{ temperature[sa[6:]-1] }}°C</span>
+                                        {% endif %}
+                                        {% set precondition = false %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="plan salle-description">Humidité :
+                            {% set precondition = true %}
+                            {% for sa in nomsa %}
+                                {% if precondition %}
+                                    {% if sa == salle.sa.nom %}
+                                        {% if humidite[sa[6:]-1] <= "70" or (humidite[sa[6:]-1] >= "70" and humidite[sa[6:]-1] <= "90" and temperature[sa[6:]-1] <= "20") %}
+                                            <span style="color: #44A556"> {{ humidite[sa[6:]-1] }}%</span>
+                                        {% elseif humidite[sa[6:]-1] >= "70" and humidite[sa[6:]-1] <= "90" and temperature[sa[6:]-1] > "20"  %}
+                                            <span style="color: #F3A600"> {{ humidite[sa[6:]-1] }}%</span>
+                                        {% elseif humidite[sa[6:]-1] > "90" %}
+                                            <span style="color: #DD1600"> {{ humidite[sa[6:]-1] }}%</span>
+                                        {% endif %}
+                                        {% set precondition = false %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="plan salle-description">CO2 :
+                            {% set precondition = true %}
+                            {% for sa in nomsa %}
+                                {% if precondition %}
+                                    {% if sa == salle.sa.nom %}
+                                        {% if dioxyde[sa[6:]-1] <= "1000" %}
+                                            <span style="color: #44A556"> {{ dioxyde[sa[6:]-1] }} PPM</span>
+                                        {% elseif "1000" < dioxyde[sa[6:]-1] <= "1500" %}
+                                            <span style="color: #F3A600"> {{ dioxyde[sa[6:]-1] }} PPM</span>
+                                        {% elseif dioxyde[sa[6:]-1] > "1500" %}
+                                            <span style="color: #DD1600"> {{ dioxyde[sa[6:]-1] }} PPM</span>
+                                        {% endif %}
+                                        {% set precondition = false %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}</p>
+                        <p class="plan salle-description">Présence d'usager : N/A</p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <h4 class="plan title">Salles en état de panne</h4>
+        <div class="plan liste">
+            {% for salle in listeSalle %}
+                {% if salle.sa is not null and salle.sa.etat.value == "En panne" %}
+                    <div class="plan salle-en_panne">
+                        <h5 class="plan salle-title">Salle {{ salle.nom }}  <div class="pastille en_panne"></div></h5>
+                        <div class="blue-bar"></div>
+                        <p class="plan salle-description">Température : <span>--</span></p>
+                        <p class="plan salle-description">Humidité : <span>--</span></p>
+                        <p class="plan salle-description">CO2 : <span>--</span></p>
+                        <p class="plan salle-description">Présence d'usager : <span>--</span></p>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{# templates/menu.html.twig #}
+<nav>
+    <a href="/">
+        <img src="{{ asset('image/logo-Universite.png') }}" class="logo-menu">
+    </a>
+    <div class="blue-border">
+        <a href="/">
+            <h2>Smart campus</h2>
+        </a>
+        <hr>
+    </div>
+    <ul class="menu-list">
+        <div class="top">
+            {% if app.request.get('_route') in ['app_liste_salle', 'app_liste_sa', 'app_ajout_salle', 'app_attribuer_sa', 'app_retirer_sa', 'app_modifier_salle', 'app_supprimer_salle', 'app_detail_salle', 'app_ajout_sa', 'app_modifier_sa', 'app_supprimer_sa'] %}
+                <li class="{{ app.request.get('_route') == 'app_liste_salle' ? 'active' : '' }}">
+                    <a href="{{ path('app_liste_salle') }}">Liste des salles</a>
+                </li>
+                <li class="{{ app.request.get('_route') == 'app_liste_sa' ? 'active' : '' }}">
+                    <a href="{{ path('app_liste_sa') }}">Liste des SA</a>
+                </li>
+            {% endif %}
+
+            {% if app.request.get('_route') in ['app_technicien_liste_plan', 'app_donnees_salle', 'app_detail_salle_technicien', 'app_technicien_confirmation_etat_sa'] %}
+                <li class="active">
+                    <a href="{{ path('app_technicien_liste_plan') }}">Plan Expérimentaton</a>
+                </li>
+            {% endif %}
+        </div>
+        <hr>
+        <div class="bottom">
+            <li>
+                <a href="{{ path('app_liste_salle') }}">Chargé de mission</a>
+            </li>
+            <li>
+                <a href="{{ path('app_technicien_liste_plan') }}">Technicien</a>
+            </li>
+        </div>
+    </ul>
+</nav>

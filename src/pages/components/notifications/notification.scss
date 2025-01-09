@@ -1,0 +1,23 @@
+.notification {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-size: 0.9rem;
+  &--info {
+    background-color: #007bff;
+  }
+  &--warning {
+    background-color: #ffc107;
+    color: #000;
+  }
+  &--error {
+    background-color: #dc3545;
+  }
+  &__message {
+    margin: 0;
+  }
+}
