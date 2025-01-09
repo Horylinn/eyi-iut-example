@@ -283,7 +283,7 @@ function Zh() {
   }
   var he = { current: null },
     A = { transition: null },
-    q = {
+    Z = {
       ReactCurrentDispatcher: he,
       ReactCurrentBatchConfig: A,
       ReactCurrentOwner: B,
@@ -333,7 +333,7 @@ function Zh() {
     (fe.PureComponent = U),
     (fe.StrictMode = c),
     (fe.Suspense = p),
-    (fe.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = q),
+    (fe.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = Z),
     (fe.act = H),
     (fe.cloneElement = function (x, T, te) {
       if (x == null)
@@ -513,7 +513,7 @@ var yf;
 function em() {
   return yf || ((yf = 1), (Fu.exports = Jh())), Fu.exports;
 }
-var Z = em(),
+var X = em(),
   b = bo();
 const tm = qh(b),
   Sf = Xh({ __proto__: null, default: tm }, [b]);
@@ -536,13 +536,13 @@ function nm() {
     wf ||
       ((wf = 1),
       (function (o) {
-        function i(A, q) {
+        function i(A, Z) {
           var H = A.length;
-          A.push(q);
+          A.push(Z);
           e: for (; 0 < H; ) {
             var x = (H - 1) >>> 1,
               T = A[x];
-            if (0 < u(T, q)) (A[x] = q), (A[H] = T), (H = x);
+            if (0 < u(T, Z)) (A[x] = Z), (A[H] = T), (H = x);
             else break e;
           }
         }
@@ -551,9 +551,9 @@ function nm() {
         }
         function c(A) {
           if (A.length === 0) return null;
-          var q = A[0],
+          var Z = A[0],
             H = A.pop();
-          if (H !== q) {
+          if (H !== Z) {
             A[0] = H;
             e: for (var x = 0, T = A.length, te = T >>> 1; x < te; ) {
               var le = 2 * (x + 1) - 1,
@@ -569,11 +569,11 @@ function nm() {
               else break e;
             }
           }
-          return q;
+          return Z;
         }
-        function u(A, q) {
-          var H = A.sortIndex - q.sortIndex;
-          return H !== 0 ? H : A.id - q.id;
+        function u(A, Z) {
+          var H = A.sortIndex - Z.sortIndex;
+          return H !== 0 ? H : A.id - Z.id;
         }
         if (
           typeof performance == "object" &&
@@ -606,47 +606,47 @@ function nm() {
           navigator.scheduling.isInputPending !== void 0 &&
           navigator.scheduling.isInputPending.bind(navigator.scheduling);
         function j(A) {
-          for (var q = a(v); q !== null; ) {
-            if (q.callback === null) c(v);
-            else if (q.startTime <= A)
-              c(v), (q.sortIndex = q.expirationTime), i(p, q);
+          for (var Z = a(v); Z !== null; ) {
+            if (Z.callback === null) c(v);
+            else if (Z.startTime <= A)
+              c(v), (Z.sortIndex = Z.expirationTime), i(p, Z);
             else break;
-            q = a(v);
+            Z = a(v);
           }
         }
         function W(A) {
           if (((_ = !1), j(A), !L))
             if (a(p) !== null) (L = !0), pe(R);
             else {
-              var q = a(v);
-              q !== null && he(W, q.startTime - A);
+              var Z = a(v);
+              Z !== null && he(W, Z.startTime - A);
             }
         }
-        function R(A, q) {
+        function R(A, Z) {
           (L = !1), _ && ((_ = !1), N(J), (J = -1)), (M = !0);
           var H = I;
           try {
             for (
-              j(q), w = a(p);
-              w !== null && (!(w.expirationTime > q) || (A && !De()));
+              j(Z), w = a(p);
+              w !== null && (!(w.expirationTime > Z) || (A && !De()));
 
             ) {
               var x = w.callback;
               if (typeof x == "function") {
                 (w.callback = null), (I = w.priorityLevel);
-                var T = x(w.expirationTime <= q);
-                (q = o.unstable_now()),
+                var T = x(w.expirationTime <= Z);
+                (Z = o.unstable_now()),
                   typeof T == "function"
                     ? (w.callback = T)
                     : w === a(p) && c(p),
-                  j(q);
+                  j(Z);
               } else c(p);
               w = a(p);
             }
             if (w !== null) var te = !0;
             else {
               var le = a(v);
-              le !== null && he(W, le.startTime - q), (te = !1);
+              le !== null && he(W, le.startTime - Z), (te = !1);
             }
             return te;
           } finally {
@@ -665,11 +665,11 @@ function nm() {
           if ($ !== null) {
             var A = o.unstable_now();
             Pe = A;
-            var q = !0;
+            var Z = !0;
             try {
-              q = $(!0, A);
+              Z = $(!0, A);
             } finally {
-              q ? Te() : ((B = !1), ($ = null));
+              Z ? Te() : ((B = !1), ($ = null));
             }
           } else B = !1;
         }
@@ -692,10 +692,10 @@ function nm() {
         function pe(A) {
           ($ = A), B || ((B = !0), Te());
         }
-        function he(A, q) {
+        function he(A, Z) {
           J = O(function () {
             A(o.unstable_now());
-          }, q);
+          }, Z);
         }
         (o.unstable_IdlePriority = 5),
           (o.unstable_ImmediatePriority = 1),
@@ -727,13 +727,13 @@ function nm() {
               case 1:
               case 2:
               case 3:
-                var q = 3;
+                var Z = 3;
                 break;
               default:
-                q = I;
+                Z = I;
             }
             var H = I;
-            I = q;
+            I = Z;
             try {
               return A();
             } finally {
@@ -742,7 +742,7 @@ function nm() {
           }),
           (o.unstable_pauseExecution = function () {}),
           (o.unstable_requestPaint = function () {}),
-          (o.unstable_runWithPriority = function (A, q) {
+          (o.unstable_runWithPriority = function (A, Z) {
             switch (A) {
               case 1:
               case 2:
@@ -756,12 +756,12 @@ function nm() {
             var H = I;
             I = A;
             try {
-              return q();
+              return Z();
             } finally {
               I = H;
             }
           }),
-          (o.unstable_scheduleCallback = function (A, q, H) {
+          (o.unstable_scheduleCallback = function (A, Z, H) {
             var x = o.unstable_now();
             switch (
               (typeof H == "object" && H !== null
@@ -789,7 +789,7 @@ function nm() {
               (T = H + T),
               (A = {
                 id: S++,
-                callback: q,
+                callback: Z,
                 priorityLevel: A,
                 startTime: H,
                 expirationTime: T,
@@ -807,10 +807,10 @@ function nm() {
           }),
           (o.unstable_shouldYield = De),
           (o.unstable_wrapCallback = function (A) {
-            var q = I;
+            var Z = I;
             return function () {
               var H = I;
-              I = q;
+              I = Z;
               try {
                 return A.apply(this, arguments);
               } finally {
@@ -1042,7 +1042,7 @@ function im() {
     pe = Symbol.for("react.lazy"),
     he = Symbol.for("react.offscreen"),
     A = Symbol.iterator;
-  function q(e) {
+  function Z(e) {
     return e === null || typeof e != "object"
       ? null
       : ((e = (A && e[A]) || e["@@iterator"]),
@@ -3363,20 +3363,20 @@ function im() {
             (Q = D.nodeName && D.nodeName.toLowerCase()),
             Q === "select" || (Q === "input" && D.type === "file"))
           )
-            var X = Zp;
+            var q = Zp;
           else if (fs(D))
-            if (ps) X = nh;
+            if (ps) q = nh;
             else {
-              X = eh;
+              q = eh;
               var ne = Jp;
             }
           else
             (Q = D.nodeName) &&
               Q.toLowerCase() === "input" &&
               (D.type === "checkbox" || D.type === "radio") &&
-              (X = th);
-          if (X && (X = X(e, P))) {
-            ds(V, X, n, F);
+              (q = th);
+          if (q && (q = q(e, P))) {
+            ds(V, q, n, F);
             break e;
           }
           ne && ne(e, D, P),
@@ -3984,15 +3984,15 @@ function im() {
         : ((C = l(C, E)), (C.return = k), C);
     }
     function y(k, C, E, z) {
-      var X = E.type;
-      return X === $
+      var q = E.type;
+      return q === $
         ? F(k, C, E.props.children, z, E.key)
         : C !== null &&
-          (C.elementType === X ||
-            (typeof X == "object" &&
-              X !== null &&
-              X.$$typeof === pe &&
-              Ws(X) === C.type))
+          (C.elementType === q ||
+            (typeof q == "object" &&
+              q !== null &&
+              q.$$typeof === pe &&
+              Ws(q) === C.type))
         ? ((z = l(C, E.props)), (z.ref = Vr(k, C, E)), (z.return = k), z)
         : ((z = ao(E.type, E.key, E.props, null, k.mode, z)),
           (z.ref = Vr(k, C, E)),
@@ -4007,9 +4007,9 @@ function im() {
         ? ((C = Ru(E, k.mode, z)), (C.return = k), C)
         : ((C = l(C, E.children || [])), (C.return = k), C);
     }
-    function F(k, C, E, z, X) {
+    function F(k, C, E, z, q) {
       return C === null || C.tag !== 7
-        ? ((C = Mn(E, k.mode, z, X)), (C.return = k), C)
+        ? ((C = Mn(E, k.mode, z, q)), (C.return = k), C)
         : ((C = l(C, E)), (C.return = k), C);
     }
     function V(k, C, E) {
@@ -4030,55 +4030,55 @@ function im() {
             var z = C._init;
             return V(k, z(C._payload), E);
         }
-        if (fr(C) || q(C))
+        if (fr(C) || Z(C))
           return (C = Mn(C, k.mode, E, null)), (C.return = k), C;
         zi(k, C);
       }
       return null;
     }
     function D(k, C, E, z) {
-      var X = C !== null ? C.key : null;
+      var q = C !== null ? C.key : null;
       if ((typeof E == "string" && E !== "") || typeof E == "number")
-        return X !== null ? null : m(k, C, "" + E, z);
+        return q !== null ? null : m(k, C, "" + E, z);
       if (typeof E == "object" && E !== null) {
         switch (E.$$typeof) {
           case R:
-            return E.key === X ? y(k, C, E, z) : null;
+            return E.key === q ? y(k, C, E, z) : null;
           case B:
-            return E.key === X ? P(k, C, E, z) : null;
+            return E.key === q ? P(k, C, E, z) : null;
           case pe:
-            return (X = E._init), D(k, C, X(E._payload), z);
+            return (q = E._init), D(k, C, q(E._payload), z);
         }
-        if (fr(E) || q(E)) return X !== null ? null : F(k, C, E, z, null);
+        if (fr(E) || Z(E)) return q !== null ? null : F(k, C, E, z, null);
         zi(k, E);
       }
       return null;
     }
-    function Q(k, C, E, z, X) {
+    function Q(k, C, E, z, q) {
       if ((typeof z == "string" && z !== "") || typeof z == "number")
-        return (k = k.get(E) || null), m(C, k, "" + z, X);
+        return (k = k.get(E) || null), m(C, k, "" + z, q);
       if (typeof z == "object" && z !== null) {
         switch (z.$$typeof) {
           case R:
             return (
-              (k = k.get(z.key === null ? E : z.key) || null), y(C, k, z, X)
+              (k = k.get(z.key === null ? E : z.key) || null), y(C, k, z, q)
             );
           case B:
             return (
-              (k = k.get(z.key === null ? E : z.key) || null), P(C, k, z, X)
+              (k = k.get(z.key === null ? E : z.key) || null), P(C, k, z, q)
             );
           case pe:
             var ne = z._init;
-            return Q(k, C, E, ne(z._payload), X);
+            return Q(k, C, E, ne(z._payload), q);
         }
-        if (fr(z) || q(z)) return (k = k.get(E) || null), F(C, k, z, X, null);
+        if (fr(z) || Z(z)) return (k = k.get(E) || null), F(C, k, z, q, null);
         zi(C, z);
       }
       return null;
     }
     function Y(k, C, E, z) {
       for (
-        var X = null, ne = null, re = C, ue = (C = 0), Qe = null;
+        var q = null, ne = null, re = C, ue = (C = 0), Qe = null;
         re !== null && ue < E.length;
         ue++
       ) {
@@ -4090,19 +4090,19 @@ function im() {
         }
         e && re && ve.alternate === null && t(k, re),
           (C = s(ve, C, ue)),
-          ne === null ? (X = ve) : (ne.sibling = ve),
+          ne === null ? (q = ve) : (ne.sibling = ve),
           (ne = ve),
           (re = Qe);
       }
-      if (ue === E.length) return n(k, re), Re && Cn(k, ue), X;
+      if (ue === E.length) return n(k, re), Re && Cn(k, ue), q;
       if (re === null) {
         for (; ue < E.length; ue++)
           (re = V(k, E[ue], z)),
             re !== null &&
               ((C = s(re, C, ue)),
-              ne === null ? (X = re) : (ne.sibling = re),
+              ne === null ? (q = re) : (ne.sibling = re),
               (ne = re));
-        return Re && Cn(k, ue), X;
+        return Re && Cn(k, ue), q;
       }
       for (re = r(k, re); ue < E.length; ue++)
         (Qe = Q(re, k, ue, E[ue], z)),
@@ -4111,7 +4111,7 @@ function im() {
               Qe.alternate !== null &&
               re.delete(Qe.key === null ? ue : Qe.key),
             (C = s(Qe, C, ue)),
-            ne === null ? (X = Qe) : (ne.sibling = Qe),
+            ne === null ? (q = Qe) : (ne.sibling = Qe),
             (ne = Qe));
       return (
         e &&
@@ -4119,15 +4119,15 @@ function im() {
             return t(k, mn);
           }),
         Re && Cn(k, ue),
-        X
+        q
       );
     }
     function G(k, C, E, z) {
-      var X = q(E);
-      if (typeof X != "function") throw Error(a(150));
-      if (((E = X.call(E)), E == null)) throw Error(a(151));
+      var q = Z(E);
+      if (typeof q != "function") throw Error(a(150));
+      if (((E = q.call(E)), E == null)) throw Error(a(151));
       for (
-        var ne = (X = null), re = C, ue = (C = 0), Qe = null, ve = E.next();
+        var ne = (q = null), re = C, ue = (C = 0), Qe = null, ve = E.next();
         re !== null && !ve.done;
         ue++, ve = E.next()
       ) {
@@ -4139,19 +4139,19 @@ function im() {
         }
         e && re && mn.alternate === null && t(k, re),
           (C = s(mn, C, ue)),
-          ne === null ? (X = mn) : (ne.sibling = mn),
+          ne === null ? (q = mn) : (ne.sibling = mn),
           (ne = mn),
           (re = Qe);
       }
-      if (ve.done) return n(k, re), Re && Cn(k, ue), X;
+      if (ve.done) return n(k, re), Re && Cn(k, ue), q;
       if (re === null) {
         for (; !ve.done; ue++, ve = E.next())
           (ve = V(k, ve.value, z)),
             ve !== null &&
               ((C = s(ve, C, ue)),
-              ne === null ? (X = ve) : (ne.sibling = ve),
+              ne === null ? (q = ve) : (ne.sibling = ve),
               (ne = ve));
-        return Re && Cn(k, ue), X;
+        return Re && Cn(k, ue), q;
       }
       for (re = r(k, re); !ve.done; ue++, ve = E.next())
         (ve = Q(re, k, ue, ve.value, z)),
@@ -4160,7 +4160,7 @@ function im() {
               ve.alternate !== null &&
               re.delete(ve.key === null ? ue : ve.key),
             (C = s(ve, C, ue)),
-            ne === null ? (X = ve) : (ne.sibling = ve),
+            ne === null ? (q = ve) : (ne.sibling = ve),
             (ne = ve));
       return (
         e &&
@@ -4168,7 +4168,7 @@ function im() {
             return t(k, Gh);
           }),
         Re && Cn(k, ue),
-        X
+        q
       );
     }
     function je(k, C, E, z) {
@@ -4183,9 +4183,9 @@ function im() {
         switch (E.$$typeof) {
           case R:
             e: {
-              for (var X = E.key, ne = C; ne !== null; ) {
-                if (ne.key === X) {
-                  if (((X = E.type), X === $)) {
+              for (var q = E.key, ne = C; ne !== null; ) {
+                if (ne.key === q) {
+                  if (((q = E.type), q === $)) {
                     if (ne.tag === 7) {
                       n(k, ne.sibling),
                         (C = l(ne, E.props.children)),
@@ -4194,11 +4194,11 @@ function im() {
                       break e;
                     }
                   } else if (
-                    ne.elementType === X ||
-                    (typeof X == "object" &&
-                      X !== null &&
-                      X.$$typeof === pe &&
-                      Ws(X) === ne.type)
+                    ne.elementType === q ||
+                    (typeof q == "object" &&
+                      q !== null &&
+                      q.$$typeof === pe &&
+                      Ws(q) === ne.type)
                   ) {
                     n(k, ne.sibling),
                       (C = l(ne, E.props)),
@@ -4250,7 +4250,7 @@ function im() {
             return (ne = E._init), je(k, C, ne(E._payload), z);
         }
         if (fr(E)) return Y(k, C, E, z);
-        if (q(E)) return G(k, C, E, z);
+        if (Z(E)) return G(k, C, E, z);
         zi(k, E);
       }
       return (typeof E == "string" && E !== "") || typeof E == "number"
@@ -7957,8 +7957,8 @@ Error generating stack: ` +
           } while (s !== null);
         }
         of(n);
-      } catch (X) {
-        (t = X), Ae === n && n !== null && (Ae = n = n.return);
+      } catch (q) {
+        (t = q), Ae === n && n !== null && (Ae = n = n.return);
         continue;
       }
       break;
@@ -8190,8 +8190,8 @@ Error generating stack: ` +
                       case 15:
                         Ji(9, m);
                     }
-                  } catch (X) {
-                    Fe(m, m.return, X);
+                  } catch (q) {
+                    Fe(m, m.return, q);
                   }
                 if (m === f) {
                   K = null;
@@ -9195,25 +9195,25 @@ function om() {
 }
 var lm = om();
 const um = () =>
-    Z.jsx(Z.Fragment, {
-      children: Z.jsxs("div", {
+    X.jsx(X.Fragment, {
+      children: X.jsxs("div", {
         className: "sidebar",
         children: [
-          Z.jsx("div", {
+          X.jsx("div", {
             className: "sidebar__logo",
-            children: Z.jsx("a", {
+            children: X.jsx("a", {
               href: "/",
-              children: Z.jsx("img", {
+              children: X.jsx("img", {
                 src: "src/assets/logo/logo.png",
                 alt: "Logo Image",
               }),
             }),
           }),
-          Z.jsx("div", {
+          X.jsx("div", {
             className: "sidebar__title",
-            children: Z.jsx("a", {
+            children: X.jsx("a", {
               href: "/",
-              children: Z.jsx("h2", { children: "Sobriété énergetique" }),
+              children: X.jsx("h2", { children: "Sobriété énergetique" }),
             }),
           }),
         ],
@@ -9231,14 +9231,14 @@ const um = () =>
     const g = (p, v) => {
       let S = 0,
         w = "#000000",
-        I = Z.jsx("div", {
+        I = X.jsx("div", {
           className: "end",
           style: { color: w },
           children: v,
         });
       switch (p) {
         case "update":
-          I = Z.jsx("i", { children: v });
+          I = X.jsx("i", { children: v });
           break;
         case "temperature":
           (S = Number(v)),
@@ -9249,7 +9249,7 @@ const um = () =>
               : S < 27
               ? (w = "#eb7221")
               : (w = "#eb2121"),
-            (I = Z.jsxs("div", {
+            (I = X.jsxs("div", {
               className: "end",
               style: { color: w },
               children: [v, " °C"],
@@ -9263,7 +9263,7 @@ const um = () =>
             : S < 70
             ? (w = "#eb7221")
             : (w = "#eb2121"),
-            (I = Z.jsxs("div", {
+            (I = X.jsxs("div", {
               className: "end",
               style: { color: w },
               children: [v, " %"],
@@ -9277,7 +9277,7 @@ const um = () =>
             : S < 1450
             ? (w = "#eb7221")
             : (w = "#eb2121"),
-            (I = Z.jsxs("div", {
+            (I = X.jsxs("div", {
               className: "end",
               style: { color: w },
               children: [v, " ppm"],
@@ -9286,13 +9286,13 @@ const um = () =>
         case "presence":
           v === !1
             ? ((w = "#eb2121"),
-              (I = Z.jsx("div", {
+              (I = X.jsx("div", {
                 className: "end",
                 style: { color: w },
                 children: "Non",
               })))
             : ((w = "#32eb21"),
-              (I = Z.jsx("div", {
+              (I = X.jsx("div", {
                 className: "end",
                 style: { color: w },
                 children: "Oui",
@@ -9301,43 +9301,63 @@ const um = () =>
       }
       return I;
     };
-    return Z.jsx(Z.Fragment, {
-      children: Z.jsxs("div", {
+    return X.jsx(X.Fragment, {
+      children: X.jsxs("div", {
         className: `room-status room-status--${h}`,
         children: [
-          Z.jsxs("h3", {
+          X.jsxs("h3", {
             className: "room-status__title",
             children: [
-              Z.jsx("span", { children: o }),
-              Z.jsx("div", { className: `room-status__title--${h}` }),
+              X.jsx("span", { children: o }),
+              X.jsx("div", { className: `room-status__title--${h}` }),
             ],
           }),
-          Z.jsxs("p", {
+          X.jsxs("p", {
             className: "room-status__info update",
-            children: ["Mise à jour : ", i || "-"],
+            children: [
+              "Mise à jour : ",
+              i || X.jsx("div", { className: "end", children: "-" }),
+            ],
           }),
-          Z.jsxs("p", {
+          X.jsxs("p", {
             className: "room-status__info",
-            children: ["Température : ", a ? g("temperature", a) : "-"],
+            children: [
+              "Température :",
+              " ",
+              a
+                ? g("temperature", a)
+                : X.jsx("div", { className: "end", children: "-" }),
+            ],
           }),
-          Z.jsxs("p", {
+          X.jsxs("p", {
             className: "room-status__info",
-            children: ["Humidité : ", c ? g("humidity", c) : "-"],
+            children: [
+              "Humidité :",
+              " ",
+              c
+                ? g("humidity", c)
+                : X.jsx("div", { className: "end", children: "-" }),
+            ],
           }),
-          Z.jsxs("p", {
+          X.jsxs("p", {
             className: "room-status__info",
-            children: ["CO2 : ", u ? g("co2", u) : "-"],
+            children: [
+              "CO2 : ",
+              u
+                ? g("co2", u)
+                : X.jsx("div", { className: "end", children: "-" }),
+            ],
           }),
-          Z.jsxs("p", {
+          X.jsxs("p", {
             className: "room-status__info",
             children: ["Présence d'usager : ", g("presence", d)],
           }),
           h === "operational"
-            ? Z.jsx("button", {
+            ? X.jsx("button", {
                 className: "room-status__button",
                 children: "Signaler anomalie",
               })
-            : Z.jsx("button", {
+            : X.jsx("button", {
                 className: "room-status__button",
                 children: "En savoir plus",
               }),
@@ -9346,24 +9366,24 @@ const um = () =>
     });
   },
   Of = ({ title: o, rooms: i }) =>
-    Z.jsx(Z.Fragment, {
-      children: Z.jsxs("div", {
+    X.jsx(X.Fragment, {
+      children: X.jsxs("div", {
         className: "roomList",
         children: [
-          Z.jsxs("h2", {
+          X.jsxs("h2", {
             className: "roomList__title",
             children: [
               o,
               " ",
-              Z.jsxs("span", {
+              X.jsxs("span", {
                 className: "nb_salles",
                 children: ["/ ", i.length, " salle(s)"],
               }),
             ],
           }),
-          Z.jsx("div", {
+          X.jsx("div", {
             className: "roomList__container",
-            children: i.map((a) => Z.jsx(am, { ...a }, a.id)),
+            children: i.map((a) => X.jsx(am, { ...a }, a.id)),
           }),
         ],
       }),
@@ -9821,8 +9841,8 @@ function xm(o) {
 }
 const km = {
     search: "",
-    building: [{ value: "Tous", label: "Tous" }],
-    floor: [{ value: "Tous", label: "Tous" }],
+    building: [{ value: "Tous", label: "Tous les bâtiments" }],
+    floor: [{ value: "Tous", label: "Tous les étages" }],
     presence: "Tous",
   },
   Ke = cm(km),
@@ -10031,15 +10051,15 @@ function Rm(o) {
     ge = J[0],
     Pe = J[1],
     De = b.useCallback(
-      function (A, q) {
-        typeof v == "function" && v(A, q), Pe(A);
+      function (A, Z) {
+        typeof v == "function" && v(A, Z), Pe(A);
       },
       [v]
     ),
     Ee = b.useCallback(
-      function (A, q) {
+      function (A, Z) {
         var H;
-        typeof S == "function" && (H = S(A, q)), U(H !== void 0 ? H : A);
+        typeof S == "function" && (H = S(A, Z)), U(H !== void 0 ? H : A);
       },
       [S]
     ),
@@ -13207,14 +13227,14 @@ var Iy = {
             var pe = a.option,
               he = a.options,
               A = a.removedValue,
-              q = a.removedValues,
+              Z = a.removedValues,
               H = a.value,
               x = function (ce) {
                 return Array.isArray(ce) ? null : ce;
               },
               T = A || pe || x(H),
               te = T ? I(T) : "",
-              le = he || q || void 0,
+              le = he || Z || void 0,
               se = le ? le.map(I) : [],
               ae = ie({ isDisabled: T && _(T, g), label: te, labels: se }, a);
             Ce = J.onChange(ae);
@@ -15114,9 +15134,9 @@ var Jd = function (i) {
                 if (A === null) return null;
                 he = b.createElement(w, L, A);
               } else {
-                var q = Te({ inputValue: U });
-                if (q === null) return null;
-                he = b.createElement(I, L, q);
+                var Z = Te({ inputValue: U });
+                if (Z === null) return null;
+                he = b.createElement(I, L, Z);
               }
               var H = {
                   minMenuHeight: R,
@@ -15482,25 +15502,25 @@ const h0 = (o) => {
           Ke.value.floor.map((M) => M.value),
           Ke.value.presence
         );
-      return Z.jsx(Z.Fragment, {
-        children: Z.jsxs("div", {
+      return X.jsx(X.Fragment, {
+        children: X.jsxs("div", {
           className: "plansSalles",
           children: [
-            Z.jsx("div", {
+            X.jsx("div", {
               className: "plansSalles__title",
               children: "Plan des salles",
             }),
-            Z.jsxs("div", {
+            X.jsxs("div", {
               className: "plansSalles__header",
               children: [
-                Z.jsx("input", {
+                X.jsx("input", {
                   type: "text",
                   placeholder: "Rechercher une salle...",
                   className: "plansSalles__search",
                   onChange: d,
                   value: Ke.value.search,
                 }),
-                Z.jsx(Zu, {
+                X.jsx(Zu, {
                   options: [
                     { value: "Tous", label: "Tous les bâtiments" },
                     ...c,
@@ -15511,7 +15531,7 @@ const h0 = (o) => {
                   isMulti: !0,
                   onChange: (M) => h("building", M),
                 }),
-                Z.jsx(Zu, {
+                X.jsx(Zu, {
                   options: [{ value: "Tous", label: "Tous les étages" }, ...u],
                   value: v,
                   className: "plansSalles__selectWrapper",
@@ -15519,7 +15539,7 @@ const h0 = (o) => {
                   isMulti: !0,
                   onChange: (M) => h("floor", M),
                 }),
-                Z.jsx(Zu, {
+                X.jsx(Zu, {
                   options: [
                     { value: "Tous", label: "Tous" },
                     { value: "True", label: "Présence d'usager" },
@@ -15532,14 +15552,14 @@ const h0 = (o) => {
                 }),
               ],
             }),
-            Z.jsxs("div", {
+            X.jsxs("div", {
               className: "plansSalles__roomLists",
               children: [
-                Z.jsx(Of, {
+                X.jsx(Of, {
                   title: "Salles en état opérationnelles",
                   rooms: w,
                 }),
-                Z.jsx(Of, { title: "Salles en état de panne", rooms: I }),
+                X.jsx(Of, { title: "Salles en état de panne", rooms: I }),
               ],
             }),
           ],
@@ -15550,9 +15570,9 @@ const h0 = (o) => {
     }
   },
   v0 = ({ message: o, type: i }) =>
-    Z.jsx("div", {
+    X.jsx("div", {
       className: `notification notification--${i}`,
-      children: Z.jsx("p", { className: "notification__message", children: o }),
+      children: X.jsx("p", { className: "notification__message", children: o }),
     }),
   g0 = [
     {
@@ -15711,13 +15731,13 @@ const h0 = (o) => {
     },
   ],
   S0 = () =>
-    Z.jsx(Z.Fragment, {
-      children: Z.jsxs("div", {
+    X.jsx(X.Fragment, {
+      children: X.jsxs("div", {
         className: "main",
         children: [
-          Z.jsx(um, {}),
-          Z.jsx(m0, { operationalRooms: g0, downRooms: y0 }),
-          Z.jsx(v0, {
+          X.jsx(um, {}),
+          X.jsx(m0, { operationalRooms: g0, downRooms: y0 }),
+          X.jsx(v0, {
             message: "Une salle est hors service !",
             type: "warning",
           }),
@@ -15725,5 +15745,5 @@ const h0 = (o) => {
       }),
     });
 lm.createRoot(document.getElementById("root")).render(
-  Z.jsx(b.StrictMode, { children: Z.jsx(S0, {}) })
+  X.jsx(b.StrictMode, { children: X.jsx(S0, {}) })
 );

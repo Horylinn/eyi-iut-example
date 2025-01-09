@@ -136,6 +136,7 @@ body {
   height: 20px;
   background-color: green;
   border-radius: 50%;
+  animation: blink 0.7s infinite;
 }
 .room-status__title--down {
   position: absolute;
@@ -145,6 +146,7 @@ body {
   height: 20px;
   background-color: orange;
   border-radius: 50%;
+  animation: blink 0.7s infinite;
 }
 .room-status__title:after {
   content: "";
@@ -188,6 +190,17 @@ body {
 .room-status__button:hover {
   background-color: #0056b3;
 }
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .roomList {
   display: flex;
   flex-direction: column;
@@ -209,7 +222,7 @@ body {
 .roomList__title:after {
   content: "";
   display: block;
-  width: 50%;
+  width: 150px;
   height: 4px;
   background-color: #4177c0;
   border-radius: 15px;
